@@ -38,7 +38,7 @@ export default function Signup() {
             pic: "",
             role: "User",
         }
-        var response = await fetch("/api/user",{
+        var response = await fetch(process.env.BACKEND_URL + "/api/user",{
             method:"post",
             headers:{
                 "content-type":"application/json"

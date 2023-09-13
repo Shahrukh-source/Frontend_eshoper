@@ -46,7 +46,7 @@ export default function Checkout() {
 
 
 	async function getAPIData() {
-		var response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+		var response = await fetch(process.env.BACKEND_URL + "/api/user/" + localStorage.getItem("userid"), {
 			method: "get",
 			headers: {
 				"content-type": "application/json",

@@ -18,7 +18,7 @@ export default function ForgetPassword2() {
     }
     async function postData(e) {
         e.preventDefault()
-        var response = await fetch("/api/user/forgetpassword-2", {
+        var response = await fetch(process.env.BACKEND_URL + "/api/user/forgetpassword-2", {
             method: "post",
             headers: {
                 "content-type": "application/json"

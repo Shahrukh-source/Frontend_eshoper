@@ -54,7 +54,7 @@ export default function Updateprofile() {
         formData.append("_id", localStorage.getItem("userid"))
         var response
         if (localStorage.getItem("role") === "Admin") {
-            response = await fetch("/api/user/admin/" + localStorage.getItem("userid"), {
+            response = await fetch(process.env.BACKEND_URL + "/api/user/admin/" + localStorage.getItem("userid"), {
                 method: "put",
                 headers: {
                     "authorization": localStorage.getItem("token")
@@ -63,7 +63,7 @@ export default function Updateprofile() {
             })
         }
         else {
-            response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+            response = await fetch(process.env.BACKEND_URL + "/api/user/" + localStorage.getItem("userid"), {
                 method: "put",
                 headers: {
                     "authorization": localStorage.getItem("token")
@@ -86,7 +86,7 @@ export default function Updateprofile() {
     async function getAPIData() {
         var response
         if (localStorage.getItem("role") === "Admin") {
-            response = await fetch("/api/user/admin/" + localStorage.getItem("userid"), {
+            response = await fetch(process.env.BACKEND_URL + "/api/user/admin/" + localStorage.getItem("userid"), {
                 method: "get",
                 headers: {
                     "content-type": "application/json",
@@ -95,7 +95,7 @@ export default function Updateprofile() {
             })
         }
         else {
-            response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+            response = await fetch(process.env.BACKEND_URL + "/api/user/" + localStorage.getItem("userid"), {
                 method: "get",
                 headers: {
                     "content-type": "application/json",

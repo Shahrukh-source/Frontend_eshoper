@@ -21,7 +21,7 @@ export default function Payment() {
 
         setcheckout(result)
         
-        var response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+        var response = await fetch(process.env.BACKEND_URL + "/api/user/" + localStorage.getItem("userid"), {
             method: "get",
             headers: {
                 "authorization": localStorage.getItem("token")
@@ -50,7 +50,7 @@ export default function Payment() {
                         razorpay_payment_id: response.razorpay_payment_id,
                         checkid: checkout._id
                     }
-                    var response = await fetch("/api/checkout/verify", {
+                    var response = await fetch(process.env.BACKEND_URL + "/api/checkout/verify", {
                         method: "put",
                         headers: {
                             "content-type": "application/json",
@@ -75,7 +75,7 @@ export default function Payment() {
 
     const handlePayment = async () => {
         try {
-            var response = await fetch("/api/checkout/orders", {
+            var response = await fetch(process.env.BACKEND_URL + "/api/checkout/orders", {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
